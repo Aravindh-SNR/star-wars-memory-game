@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import TopicsNav from './components/TopicsNav';
+import Home from './components/Home';
+import Topic from './components/Topic';
 
 function App() {
+  const topics = ['people', 'films', 'starships', 'vehicles', 'species', 'planets'];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <header>
+        <Link to='/' id='page_heading'><h1>Star Wars Memory Game</h1></Link>
       </header>
-    </div>
+      <TopicsNav topics={topics}/>
+      <main>
+        <Route exact path='/' component={Home}/>
+        {/* creating 6 routes for the 6 topics */}
+        {topics.map(topic => <Route exact path={`/${topic}`} component={Topic} key={topic}/>)}
+      </main>
+    </BrowserRouter>
   );
 }
 

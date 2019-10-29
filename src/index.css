@@ -1,3 +1,8 @@
+:root {
+  --text-blue: rgb(21, 21, 122);
+  --hidden-color: rgb(200, 200, 200);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,9 +10,171 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f7fafc url('https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80') no-repeat;
+  background-size: cover;
+  color: var(--text-blue);
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1, .loading_message {
+  text-align: center;
+}
+
+.loading_message {
+  font-weight: 500;
+}
+
+/* home view */
+.home {
+  padding: 0 50px;
+  line-height: 1.5em;
+  text-align: justify;
+}
+
+ol {
+  line-height: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-blue);
+}
+
+.topics_nav, .data {
+  display: grid;
+  padding: 0 50px 30px 50px;
+}
+
+/* navigation section */
+.topics_nav {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+/* topic view */
+.data {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+/* individual navigation item */
+.nav_item {
+  padding: 10px;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* individual item in the topic view */
+.data_item {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--hidden-color);
+  cursor: pointer;
+  background: var(--hidden-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.nav_item, .data_item {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.nav_item {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nav_item.active, .nav_item:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* card game link in the home view */
+#concentration {
+  font-weight: bold;
+}
+
+/* selected box */
+.chosen {
+  background: darkslateblue;
+  transition: all 1s;
+}
+
+/* matched box */
+.done {
+  background: rgba(0, 255, 0, 0.6);
+  color: darkslateblue;
+  cursor: auto;
+  opacity: 0.25;
+  transition: opacity 1s 1s;
+}
+
+/* victory message */
+.victory {
+  margin-top: 25px;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* animation for displaying the victory message */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* vertical scroll provided by the higher order component */
+.scroll {
+  overflow-y: auto;
+  height: 80vh;
 }
