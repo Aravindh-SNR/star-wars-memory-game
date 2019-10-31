@@ -2,6 +2,14 @@ import React, {useState, useEffect, Fragment} from 'react';
 import TopicItem from './TopicItem';
 import Scroll from './Scroll';
 
+//function to shuffle the order of elements in an array
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+};
+
 const Topic = (props) => {
     //storing the array of items in data
     const [data, setData] = useState([]);
@@ -33,14 +41,6 @@ const Topic = (props) => {
             clearTimeout(timer);
         };
     }, [props.match.path, timer]);
-
-    //function to shuffle the order of elements in the array
-    const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    };
 
     //listener for click events
     const handleClick = (event) => {
