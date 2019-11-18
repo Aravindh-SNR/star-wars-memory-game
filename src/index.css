@@ -21,12 +21,8 @@ code {
     monospace;
 }
 
-h1, .loading_message {
+h1 {
   text-align: center;
-}
-
-.loading_message {
-  font-weight: 500;
 }
 
 /* home view */

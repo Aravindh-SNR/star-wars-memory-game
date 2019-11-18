@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import TopicItem from './TopicItem';
 import Scroll from './Scroll';
+import Loading from './loading_animation/Loading';
 
 //function to shuffle the order of elements in an array
 const shuffleArray = (array) => {
@@ -78,7 +79,7 @@ const Topic = (props) => {
     return (
         <Fragment>
             {/* displaying a loading message if the data array is empty */}
-            {!data.length && <p className='loading_message'>Loading...</p>}
+            {!data.length && <Loading/>}
             <div className='data'>
                 <TopicItem count={count} data={data} handleClick={handleClick}/>
             </div>
