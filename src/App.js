@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link, Redirect} from 'react-router-dom';
 import TopicsNav from './components/TopicsNav';
 import Home from './components/Home';
 import Topic from './components/Topic';
@@ -17,6 +17,8 @@ function App() {
         <Route exact path='/' component={Home}/>
         {/* creating 6 routes for the 6 topics */}
         {topics.map(topic => <Route exact path={`/${topic}`} component={Topic} key={topic}/>)}
+        {/* Handle invalid URLs/routes by redirecting them to the home route */}
+        <Route render={() => <Redirect to="/"/>}/>
       </main>
     </BrowserRouter>
   );
