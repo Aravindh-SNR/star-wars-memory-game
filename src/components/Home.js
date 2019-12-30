@@ -8,6 +8,7 @@ const Home = () => {
             <p>Choose any one of the above topics to start playing.</p>
             <p>Please note that this is not a Star Wars quiz, but a memory game that makes use of topics from Star Wars, 
             and is similar to the card game <a id='concentration' href='https://www.ducksters.com/games/concentration_rules.php' target='_blank' rel='noopener noreferrer'>Concentration</a>.</p>
+            <p>No Star Wars knowledge is required to play the game.</p>
             <p>How to play:</p>
             <ol>
                 <li>Click on any two boxes, one after the other, to see the content inside them. If they have the same content, they'll be taken off the list.</li>
