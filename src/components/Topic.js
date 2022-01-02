@@ -23,7 +23,7 @@ const Topic = (props) => {
     useEffect(() => {
         //fetching data from the star wars api
         (async function() {
-            const response = await fetch(`https://swapi.co/api${props.match.path}/`, {mode: 'cors'});
+            const response = await fetch(`https://swapi.dev/api${props.match.path}/`, {mode: 'cors'});
             const responseObject = await response.json();
             let newData = [];
             //storing the item's name (or the film's title) in the data array
