@@ -4,7 +4,7 @@ The app has been built using React and gets data from the Star Wars API - https:
 
 Play the game at https://star-wars-memory-game.netlify.com/
 
-To run the app locally,
+To run the app locally:
 1. Clone the repository
 2. Run npm install
 3. Run npm start
